@@ -6,7 +6,7 @@ import nacl from "tweetnacl";
 import bs58 from "bs58";
 import axios from "axios";
 
-const sol_address = process.env.SOL_ENDPOINT;
+const sol_address = import.meta.env.VITE_SOL_ENDPOINT;
 
 export function SolanaWallet({ mnemonic }) {
   const [currentIndex, setCurrentIndex] = useState(0);

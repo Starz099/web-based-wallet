@@ -3,7 +3,7 @@ import { mnemonicToSeed } from "bip39";
 import { Wallet, HDNodeWallet } from "ethers";
 import axios from "axios";
 
-const eth_address = process.env.ETH_ENDPOINT;
+const eth_address = import.meta.env.VITE_ETH_ENDPOINT;
 
 export const EthWallet = ({mnemonic}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,6 +16,7 @@ export const EthWallet = ({mnemonic}) => {
         const newBalances = [];
 
         for (let i = 0; i < publicKeys.length; i++) {
+          console.log(eth_address)
           try {
             const res = await axios.post(eth_address, {
               jsonrpc: "2.0",
